@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BilinguAudit checks Canadian English and French documents for terminology consistency, untranslated text, and delivery drift."
+    />
+    <title>BilinguAudit — Canadian bilingual document QA</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="#top" aria-label="BilinguAudit home">
+        <span class="mark">BA</span>
+        <span>BilinguAudit</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#try">Try It Now</a>
+        <a href="#pricing">Pricing</a>
+        <a class="nav-cta" href="https://github.com/shadoprizm/bilinguaudit">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Canadian English/French QA</p>
+          <h1>Bilingual document audits before the client finds the drift.</h1>
+          <p class="subhead">
+            Paste English and French copy, add critical terminology, and get a practical QA report for
+            untranslated fragments, inconsistent terms, numbers, dates, and formatting drift.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#try">Try It Now</a>
+            <a class="secondary-btn" href="#pricing">See Pricing</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Sample audit score">
+          <div class="score-ring">
+            <span id="heroScore">86</span>
+            <small>audit score</small>
+          </div>
+          <div class="mini-findings">
+            <p><strong>3</strong> terminology risks</p>
+            <p><strong>2</strong> number/date mismatches</p>
+            <p><strong>1</strong> untranslated phrase</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Built for document delivery</p>
+          <h2>Checks that match bilingual review work.</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <span class="icon">Aa</span>
+            <h3>Terminology lock</h3>
+            <p>Track required English/French term pairs and flag missing or inconsistent usage.</p>
+          </article>
+          <article>
+            <span class="icon">#</span>
+            <h3>Numbers and dates</h3>
+            <p>Catch amount, percentage, phone, deadline, and date drift between versions.</p>
+          </article>
+          <article>
+            <span class="icon">¶</span>
+            <h3>Structure drift</h3>
+            <p>Compare headings, bullets, paragraphs, and length balance before handoff.</p>
+          </article>
+          <article>
+            <span class="icon">AI</span>
+            <h3>AI memo option</h3>
+            <p>Use your own OpenAI key to generate a reviewer-style memo with next actions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="try" class="tool-section">
+        <div class="tool-heading">
+          <div>
+            <p class="eyebrow">Try It Now</p>
+            <h2>Run a bilingual QA pass in the browser.</h2>
+          </div>
+          <button id="loadSample" class="ghost-btn" type="button">Load sample</button>
+        </div>
+
+        <div class="tool-grid">
+          <label class="field">
+            <span>English source</span>
+            <textarea id="englishText" placeholder="Paste English document text..."></textarea>
+          </label>
+          <label class="field">
+            <span>French version</span>
+            <textarea id="frenchText" placeholder="Paste French document text..."></textarea>
+          </label>
+        </div>
+
+        <div class="controls">
+          <label class="field compact">
+            <span>Critical glossary pairs</span>
+            <input
+              id="terminology"
+              value="privacy notice=avis de confidentialité; service level=niveau de service; deadline=date limite"
+              aria-label="Terminology pairs"
+            />
+          </label>
+          <label class="field compact">
+            <span>OpenAI key for AI memo (optional)</span>
+            <input id="apiKey" type="password" placeholder="sk-... stays in this browser session" />
+          </label>
+          <div class="button-row">
+            <button id="runAudit" class="primary-btn" type="button">Run Audit</button>
+            <button id="downloadReport" class="secondary-btn" type="button">Download</button>
+          </div>
+        </div>
+
+        <section class="results" aria-live="polite">
+          <div class="result-score">
+            <span id="score">--</span>
+            <small>score</small>
+          </div>
+          <div class="result-list" id="findings">
+            <p class="empty">Paste two versions or load the sample, then run the audit.</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="section how">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2>Three steps from pasted copy to QA record.</h2>
+        </div>
+        <div class="steps">
+          <article><strong>1</strong><span>Paste both language versions.</span></article>
+          <article><strong>2</strong><span>Add required terminology pairs.</span></article>
+          <article><strong>3</strong><span>Export the audit report and fix the highest-risk issues.</span></article>
+        </div>
+      </section>
+
+      <section id="pricing" class="section pricing">
+        <div class="section-heading">
+          <p class="eyebrow">Pricing</p>
+          <h2>Useful free, paid when it saves review cycles.</h2>
+        </div>
+        <div class="pricing-grid">
+          <article>
+            <h3>Free</h3>
+            <p class="price">$0</p>
+            <ul>
+              <li>Short paste-based audits</li>
+              <li>Terminology and drift checks</li>
+              <li>Downloadable text report</li>
+            </ul>
+          </article>
+          <article class="pro">
+            <h3>Pro</h3>
+            <p class="price">$29/mo</p>
+            <ul>
+              <li>Longer documents and batch runs</li>
+              <li>Saved Canadian glossary packs</li>
+              <li>Branded PDF reports and managed AI memo</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Done-with-you Audit</h3>
+            <p class="price">$199</p>
+            <ul>
+              <li>Fixed-price bilingual document QA</li>
+              <li>Best for RFPs and public-sector vendors</li>
+              <li>Delivered by Astra Web Development</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Built by North Star Holdings</span>
+      <a href="https://astrawebdev.com">astrawebdev.com</a>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

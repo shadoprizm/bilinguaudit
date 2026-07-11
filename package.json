@@ -1,0 +1,23 @@
+{
+  "name": "bilinguaudit",
+  "version": "0.1.0",
+  "description": "Canadian English/French document audit tool with deterministic checks and optional BYO OpenAI review.",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve web",
+    "build": "node tests/smoke.mjs",
+    "test": "node tests/smoke.mjs"
+  },
+  "keywords": [
+    "translation",
+    "bilingual",
+    "audit",
+    "canada",
+    "ai"
+  ],
+  "author": "North Star Holdings",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
