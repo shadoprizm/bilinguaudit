@@ -19,7 +19,7 @@
       <nav aria-label="Primary">
         <a href="#features">Features</a>
         <a href="#try">Try It Now</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
         <a class="nav-cta" href="https://github.com/shadoprizm/bilinguaudit">GitHub</a>
       </nav>
     </header>
@@ -28,25 +28,25 @@
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Canadian English/French QA</p>
-          <h1>Bilingual document audits before the client finds the drift.</h1>
+          <h1>Compare English and French documents before handoff.</h1>
           <p class="subhead">
-            Paste English and French copy, add critical terminology, and get a practical QA report for
-            untranslated fragments, inconsistent terms, numbers, dates, and formatting drift.
+            Check glossary occurrences, numbers and dates with evidence from both versions.
+            A bilingual reviewer still needs to verify meaning and completeness.
           </p>
           <div class="hero-actions">
             <a class="primary-btn" href="#try">Try It Now</a>
-            <a class="secondary-btn" href="#pricing">See Pricing</a>
+            <a class="secondary-btn" href="#about">What it checks</a>
           </div>
         </div>
-        <div class="hero-panel" aria-label="Sample audit score">
+        <div class="hero-panel" aria-label="Review workflow">
           <div class="score-ring">
-            <span id="heroScore">86</span>
-            <small>audit score</small>
+            <span>EN/FR</span>
+            <small>document checks</small>
           </div>
           <div class="mini-findings">
-            <p><strong>3</strong> terminology risks</p>
-            <p><strong>2</strong> number/date mismatches</p>
-            <p><strong>1</strong> untranslated phrase</p>
+            <p>Compare values and dates</p>
+            <p>Review glossary occurrences</p>
+            <p>Export a review record</p>
           </div>
         </div>
       </section>
@@ -59,18 +59,18 @@
         <div class="feature-grid">
           <article>
             <span class="icon">Aa</span>
-            <h3>Terminology lock</h3>
-            <p>Track required English/French term pairs and flag missing or inconsistent usage.</p>
+            <h3>Glossary checks</h3>
+            <p>Compare approved term occurrences. Differences need review, including intentional variations.</p>
           </article>
           <article>
             <span class="icon">#</span>
             <h3>Numbers and dates</h3>
-            <p>Catch amount, percentage, phone, deadline, and date drift between versions.</p>
+            <p>Compare amounts, percentages, phones and supported date formats in passages paired by order.</p>
           </article>
           <article>
             <span class="icon">¶</span>
             <h3>Structure drift</h3>
-            <p>Compare headings, bullets, paragraphs, and length balance before handoff.</p>
+            <p>Flag different passage and bullet counts. Reordered or merged passages need manual alignment.</p>
           </article>
           <article>
             <span class="icon">AI</span>
@@ -111,23 +111,27 @@
           </label>
           <label class="field compact">
             <span>OpenAI key for AI memo (optional)</span>
-            <input id="apiKey" type="password" placeholder="sk-... stays in this browser session" />
+            <input id="apiKey" type="password" autocomplete="off" placeholder="Used only when you request an AI memo" />
           </label>
           <div class="button-row">
             <button id="runAudit" class="primary-btn" type="button">Run Audit</button>
+            <button id="generateMemo" class="secondary-btn" type="button">Generate AI memo</button>
             <button id="downloadReport" class="secondary-btn" type="button">Download</button>
           </div>
         </div>
 
         <section class="results" aria-live="polite">
           <div class="result-score">
-            <span id="score">--</span>
-            <small>score</small>
+            <span id="findingCount">—</span>
+            <small>findings</small>
           </div>
           <div class="result-list" id="findings">
             <p class="empty">Paste two versions or load the sample, then run the audit.</p>
           </div>
         </section>
+        <p id="status" role="status"></p>
+        <div id="coverage" class="coverage"></div>
+        <p class="scope-note">Local checks keep text in this browser. Generate AI memo sends both full texts, glossary and findings to OpenAI using your key and may incur API charges. Do not send confidential material without authorization. The key is not saved by this app.</p>
       </section>
 
       <section class="section how">
@@ -142,37 +146,34 @@
         </div>
       </section>
 
-      <section id="pricing" class="section pricing">
+      <section id="about" class="section pricing">
         <div class="section-heading">
-          <p class="eyebrow">Pricing</p>
-          <h2>Useful free, paid when it saves review cycles.</h2>
+          <p class="eyebrow">Scope</p>
+          <h2>Free document checks with an explicit human review step.</h2>
         </div>
         <div class="pricing-grid">
           <article>
-            <h3>Free</h3>
-            <p class="price">$0</p>
+            <h3>Available now</h3>
             <ul>
-              <li>Short paste-based audits</li>
-              <li>Terminology and drift checks</li>
-              <li>Downloadable text report</li>
+              <li>Local checks of supplied plain text</li>
+              <li>Line references for differing values</li>
+              <li>Downloadable findings and review limits</li>
             </ul>
           </article>
           <article class="pro">
-            <h3>Pro</h3>
-            <p class="price">$29/mo</p>
+            <h3>Needs a reviewer</h3>
             <ul>
-              <li>Longer documents and batch runs</li>
-              <li>Saved Canadian glossary packs</li>
-              <li>Branded PDF reports and managed AI memo</li>
+              <li>Meaning, negation and omitted clauses</li>
+              <li>Intentional terminology differences</li>
+              <li>Reordered passages and ambiguous dates</li>
             </ul>
           </article>
           <article>
-            <h3>Done-with-you Audit</h3>
-            <p class="price">$199</p>
+            <h3>Optional AI suggestions</h3>
             <ul>
-              <li>Fixed-price bilingual document QA</li>
-              <li>Best for RFPs and public-sector vendors</li>
-              <li>Delivered by Astra Web Development</li>
+              <li>Explicit request using your OpenAI key</li>
+              <li>Up to 60,000 characters per language, with no truncation</li>
+              <li>Suggestions requiring bilingual review</li>
             </ul>
           </article>
         </div>
@@ -184,6 +185,6 @@
       <a href="https://astrawebdev.com">astrawebdev.com</a>
     </footer>
 
-    <script src="./app.js"></script>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
