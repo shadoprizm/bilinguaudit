@@ -307,6 +307,17 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(74, 163, 255, 0.12);
 }
 
+.coverage, .scope-note, #status {
+  color: var(--muted);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.memo, .evidence {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 .controls {
   display: grid;
   grid-template-columns: 1.3fr 1fr auto;
